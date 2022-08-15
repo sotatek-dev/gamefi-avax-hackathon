@@ -37,5 +37,17 @@ export class GameController {
   ) {
     const gameRoom = this.getSocketGameRoom(socket);
     socket.to(gameRoom).emit("on_game_win", message);
+    io.in(gameRoom).disconnectSockets(true);
   }
+
+  @OnMessage("leave_room")
+  public async leaveRoom(
+    @SocketIO() io: Server,
+    @ConnectedSocket() socket: Socket,
+  ) {
+    const gameRoom = this.getSocketGameRoom(socket);
+    io.in(gameRoom).disconnectSockets(true);
+  }
+
+  
 }

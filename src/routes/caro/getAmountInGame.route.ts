@@ -1,6 +1,6 @@
 import * as express from "express";
 const router = express.Router();
-const getAmountInGame = require('../api/getAmountInGame.controller');
+const getAmountInGame = require('../../caro-controller/getAmountInGame.controller');
 
 /* GET programming languages. */
 router.post('/', async function(req, res, next) {

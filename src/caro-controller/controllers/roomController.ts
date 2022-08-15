@@ -52,6 +52,8 @@ export class RoomController {
     const arr = Array.from(io.sockets.adapter.rooms);
     const filtered = arr.filter(room => !room[1].has(room[0]))
     const pendingRooms = filtered.filter(room => room[1].size == 1)
+    console.log(pendingRooms, 'pendingRooms');
+    
     const res = pendingRooms.map(i => i[0]);
     console.log(res, 'update_waiting_games');
     socket.emit("list_room", { rooms: res });

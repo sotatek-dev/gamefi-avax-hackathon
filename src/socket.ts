@@ -12,7 +12,7 @@ export default (httpServer) => {
 
   // });
 
-  useSocketServer(io, { controllers: [__dirname + "/api/controllers/*.ts"] });
+  useSocketServer(io, { controllers: [__dirname + "/caro-controller/controllers/*.ts"] });
 
   return io;
 };

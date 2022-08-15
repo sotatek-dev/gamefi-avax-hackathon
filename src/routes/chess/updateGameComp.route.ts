@@ -1,6 +1,6 @@
 import * as express from "express";
 const router = express.Router();
-const doUpdateGame = require('../api/updateGameComp.controller')
+const doUpdateGame = require('../../chess-controller/updateGameComp.controller')
 
 /* GET programming languages. */
 router.post('/', async function(req, res, next) {

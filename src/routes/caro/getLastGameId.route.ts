@@ -1,12 +1,11 @@
 import * as express from "express";
-const doUpdateGame = require('../api/updateGame.controller');
 const router = express.Router();
+const doGetLastGameId = require('../../caro-controller/getLastGameId.controller');
 
 /* GET programming languages. */
-router.post('/', async function(req, res, next) {
+router.get('/', async function(req, res, next) {
   try {
-    let {address, amount} = req.body.data
-    res.json(await doUpdateGame.updateGame(address, amount));
+    res.json(await doGetLastGameId.getLastGameId() );
   } catch (err) {
     console.error(`Error `, err.message);
     next(err);

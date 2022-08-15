@@ -1,6 +1,6 @@
 import * as express from "express";
 const router = express.Router();
-const doGetLastGameId = require('../api/getLastGameId.controller');
+const doGetLastGameId = require('../../chess-controller/getLastGameId.controller');
 
 /* GET programming languages. */
 router.get('/', async function(req, res, next) {

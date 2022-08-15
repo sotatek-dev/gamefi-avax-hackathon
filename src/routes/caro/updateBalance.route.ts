@@ -1,8 +1,7 @@
 import * as express from "express";
-const doUpdateBalance = require('../api/updateBalance.controller');
+const doUpdateBalance = require('../../caro-controller/updateBalance.controller');
 const router = express.Router();
 
-/* GET programming languages. */
 router.post('/', async function(req, res, next) {
   try {
     let {address, balance} = req.body.data
