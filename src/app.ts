@@ -38,7 +38,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-app.use("/", indexRouter);
+// app.use("/", indexRouter);
 app.use("/caro/updateBalance", updateBalance);
 app.use("/caro/updateGameComp", updateGameComp);
 app.use("/caro/getLastGameId", getLastGameId);
@@ -54,10 +54,23 @@ app.use("/chess/updateGameComp", updateGameCompChess);
 app.use("/chess/getLastGameId", getLastGameIdChess);
 app.use("/chess/getGameByIdName", getAmountInGameChess);
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+// // catch 404 and forward to error handler
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
+
+// if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../Osu-game-ptit/build')));
+  console.log(path.join(__dirname, '../../Osu-game-ptit/build'));
+  
+  app.get('*', (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, '../../', 'Osu-game-ptit', 'build', 'index.html')
+    )
+  );
+// } else {
+//   app.get('/', (req, res) => res.send('Please set to production'));
+// }
 
 // error handler
 app.use(function (err, req, res, next) {
