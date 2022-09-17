@@ -60,7 +60,7 @@ app.use("/chess/getGameByIdName", getAmountInGameChess);
 // });
 
 // if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../Osu-game-ptit/build')));
+  app.use(express.static(path.join(__dirname, '../../Osu-game-ptit/build')));
   console.log(path.join(__dirname, '../../Osu-game-ptit/build'));
   
   app.get('*', (req, res) =>
