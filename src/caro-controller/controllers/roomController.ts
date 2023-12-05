@@ -6,8 +6,10 @@ import {
   SocketIO,
 } from "socket-controllers";
 import { Server, Socket } from "socket.io";
+import { Service } from "typedi";
 
 @SocketController()
+@Service()
 export class RoomController {
   @OnMessage("join_game")
   public async joinGame(

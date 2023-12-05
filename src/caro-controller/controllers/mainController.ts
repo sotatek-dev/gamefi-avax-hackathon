@@ -5,8 +5,10 @@ import {
   SocketIO,
 } from "socket-controllers";
 import { Socket, Server } from "socket.io";
+import { Service } from "typedi";
 
 @SocketController()
+@Service()
 export class MainController {
   @OnConnect()
   public onConnection(

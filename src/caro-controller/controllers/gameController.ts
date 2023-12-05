@@ -6,9 +6,11 @@ import {
   SocketIO,
 } from "socket-controllers";
 import { Server, Socket } from "socket.io";
+import { Service } from "typedi";
 import { callbackify } from "util";
 
 @SocketController()
+@Service()
 export class GameController {
   private getSocketGameRoom(socket: Socket): string {
     const socketRooms = Array.from(socket.rooms.values()).filter(
